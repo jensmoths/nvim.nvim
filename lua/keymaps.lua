@@ -45,4 +45,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.keymap.set('i', 'jj', '<Esc>', { desc = 'Exit interactive mode' })
+vim.keymap.set('n', '<leader>ww', '<cmd>update<CR>', { desc = 'Write normal mode' })
+vim.keymap.set('n', '<leader>wq', '<cmd>wq<CR>', { desc = 'Write and quit normal mode' })
+
 -- vim: ts=2 sts=2 sw=2 et
