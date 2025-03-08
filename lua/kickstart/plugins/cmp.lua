@@ -51,42 +51,12 @@ return {
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
 
-        sorting = {
-          priority_weight = 2,
-          comparators = {
-            require 'cmp_ai.compare',
-            compare.offset,
-            compare.exact,
-            compare.score,
-            compare.recently_used,
-            compare.kind,
-            compare.sort_text,
-            compare.length,
-            compare.order,
-          },
-
-          formatting = {
-            format = lspkind.cmp_format {
-              mode = 'symbol_text',
-              maxwidth = 50,
-              ellipsis_char = '...',
-              show_labelDetails = true,
-              symbol_map = {
-                Ollama = '',
-                OpenAI = '',
-                Codestral = '',
-                Bard = '',
-              },
-            },
-
-            -- The function below will be called before any actual modifications from lspkind
-            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-            before = function(entry, vim_item)
-              -- ...
-              return vim_item
-            end,
-          },
-        },
+        -- The function below will be called before any actual modifications from lspkind
+        -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+        before = function(entry, vim_item)
+          -- ...
+          return vim_item
+        end,
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
@@ -149,7 +119,6 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
-          { name = 'cmp_ai' },
         },
       }
     end,
