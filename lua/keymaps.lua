@@ -51,4 +51,6 @@ vim.keymap.set('n', '<leader>wq', '<cmd>wq<CR>', { desc = 'Write and quit normal
 vim.keymap.set('n', '<leader>b', '<C-o>', { desc = 'Go back' })
 vim.keymap.set('n', '<leader>B', '<C-i>', { desc = 'Go forward' })
 
+vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
+
 -- vim: ts=2 sts=2 sw=2 et
