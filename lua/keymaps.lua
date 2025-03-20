@@ -6,7 +6,7 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -46,10 +46,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.keymap.set('i', 'jj', '<Esc>', { desc = 'Exit interactive mode' })
-vim.keymap.set('n', '<leader>ww', '<cmd>update<CR>', { desc = 'Write normal mode' })
-vim.keymap.set('n', '<leader>wq', '<cmd>wq<CR>', { desc = 'Write and quit normal mode' })
 vim.keymap.set('n', '<leader>b', '<C-o>', { desc = 'Go back' })
 vim.keymap.set('n', '<leader>B', '<C-i>', { desc = 'Go forward' })
+vim.keymap.set('n', '<leader>pa', 'zg', { desc = 'Add to spell list' })
+vim.keymap.set('n', '<leader>pr', 'zw', { desc = 'Mark as misspelled' })
 
 vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 

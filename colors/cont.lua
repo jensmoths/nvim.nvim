@@ -57,3 +57,4 @@ hi(0, 'DiagnosticVirtualTextInfo', { fg = colors.grey })
 
 hi(0, 'MiniStatuslineDevinfo', { fg = '#00ff66', bg = colors.bg })
 hi(0, 'MiniStatuslineModeNormal', { fg = colors.bg, bg = '#ff0099' })
+hi(0, 'MiniTablineCurrent', { fg = '#ff0099', bg = colors.bg })

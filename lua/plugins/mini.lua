@@ -20,12 +20,38 @@ return {
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
-      local statusline = require 'mini.statusline'
-      -- set use_icons to true if you have a Nerd Font
-      statusline.setup { use_icons = vim.g.have_nerd_font }
+      require('mini.statusline').setup { use_icons = vim.g.have_nerd_font }
 
-      -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
+      require('mini.notify').setup()
+      require('mini.icons').setup()
+      require('mini.sessions').setup()
+
+      local starter = require 'mini.starter'
+      starter.setup {
+        header = io.popen('fortune -s | cowsay -f moose -w'):read('*all'):gsub('$', ''),
+        items = {
+          starter.sections.sessions(5, true),
+          starter.sections.recent_files(5, true),
+          starter.sections.recent_files(10, false),
+          starter.sections.builtin_actions(),
+        },
+        footer = '',
+        content_hooks = {
+          starter.gen_hook.adding_bullet(),
+          -- starter.gen_hook.indexing('all', { 'Builtin actions' }),
+          starter.gen_hook.aligning('center', 'center'),
+        },
+      }
+
+      local hipatterns = require 'mini.hipatterns'
+      hipatterns.setup {
+        highlighters = {
+          hex_color = hipatterns.gen_highlighter.hex_color(),
+        },
+      }
+
+      require('mini.move').setup()
+      -- require('mini.tabline').setup()
 
       vim.cmd 'colorscheme cont'
     end,

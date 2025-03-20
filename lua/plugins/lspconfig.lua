@@ -69,7 +69,7 @@ return {
           -- for LSP related items. It sets the mode, buffer and description for us each time.
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
-            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
           end
 
           -- -- Jump to the definition of the word under your cursor.
@@ -96,25 +96,25 @@ return {
           -- -- Fuzzy find all the symbols in your current workspace.
           -- --  Similar to document symbols, except searches over your entire project.
           -- map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-
+          --
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('<leader>rn', vim.lsp.buf.rename, 'Rename')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
-
-          -- WARN: This is not Goto Definition, this is Goto Declaration.
-          --  For example, in C this would take you to the header.
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          map('<leader>a', vim.lsp.buf.code_action, 'Code Action', { 'n', 'x' })
+          --
+          -- -- WARN: This is not Goto Definition, this is Goto Declaration.
+          -- --  For example, in C this would take you to the header.
+          -- map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
           --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
-          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          -- local client = vim.lsp.get_client_by_id(event.data.client_id)
           -- if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
           --   local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
           --   vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
@@ -151,14 +151,14 @@ return {
       })
 
       -- Change diagnostic symbols in the sign column (gutter)
-      if vim.g.have_nerd_font then
-        local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
-        local diagnostic_signs = {}
-        for type, icon in pairs(signs) do
-          diagnostic_signs[vim.diagnostic.severity[type]] = icon
-        end
-        vim.diagnostic.config { signs = { text = diagnostic_signs } }
-      end
+      -- if vim.g.have_nerd_font then
+      --   local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
+      --   local diagnostic_signs = {}
+      --   for type, icon in pairs(signs) do
+      --     diagnostic_signs[vim.diagnostic.severity[type]] = icon
+      --   end
+      --   vim.diagnostic.config { signs = { text = diagnostic_signs } }
+      -- end
 
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
