@@ -25,6 +25,10 @@ return {
       require('mini.notify').setup()
       require('mini.icons').setup()
       require('mini.sessions').setup()
+      require('mini.snippets').setup()
+
+      -- Alt + hjkl
+      require('mini.move').setup()
 
       local starter = require 'mini.starter'
       starter.setup {
@@ -50,7 +54,6 @@ return {
         },
       }
 
-      require('mini.move').setup()
       -- require('mini.tabline').setup()
 
       vim.cmd 'colorscheme cont'

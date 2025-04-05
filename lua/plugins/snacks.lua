@@ -4,6 +4,7 @@ return {
     opts = {
       picker = {},
       explorer = { git_status_open = true, auto_close = true },
+      notifier = {},
     },
     keys = {
       -- Top Pickers & Explorer
