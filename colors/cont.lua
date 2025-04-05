@@ -59,4 +59,5 @@ hi(0, 'MiniStatuslineDevinfo', { fg = '#00ff66', bg = colors.bg })
 hi(0, 'MiniStatuslineModeNormal', { fg = colors.bg, bg = '#ff0099' })
 hi(0, 'MiniTablineCurrent', { fg = '#ff0099', bg = colors.bg })
 
-hi(0, 'TreesitterContext', { fg = colors.grey, underline = true, sp = colors.grey })
+-- hi(0, 'TreesitterContext', { bg = '#332626' })
+hi(0, 'TreesitterContextBottom', { underline = true, sp = colors.grey })

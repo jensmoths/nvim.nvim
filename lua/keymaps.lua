@@ -57,4 +57,19 @@ vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 vim.cmd 'map f <Plug>Sneak_s'
 vim.cmd 'map F <Plug>Sneak_S'
 
+vim.keymap.set('n', ']e', function()
+  vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
+end, { desc = 'Go to next diagnostic error' })
+
+vim.keymap.set('n', '[e', function()
+  vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }
+end, { desc = 'Go to previous diagnostic error' })
+
+-- Map <leader>l to jump to the last known cursor position in this file
+vim.keymap.set('n', '<leader>l', 'g`"', {
+  noremap = true, -- Make the mapping non-recursive
+  silent = true, -- Don't echo the command being executed
+  desc = 'Jump to last known cursor position', -- Description (optional, useful for plugins like which-key)
+})
+
 -- vim: ts=2 sts=2 sw=2 et

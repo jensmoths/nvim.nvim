@@ -12,3 +12,15 @@ vim.api.nvim_create_autocmd({ 'FileChangedShellPost' }, {
   pattern = '*',
   command = "echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None",
 })
+
+-- Create an augroup to hold the autocommand
+local restoreCursorGroup = vim.api.nvim_create_augroup('RestoreCursorOnLoad', { clear = true })
+
+-- Create the autocommand
+vim.api.nvim_create_autocmd('BufReadPost', {
+  group = vim.api.nvim_create_augroup('RestoreCursorOnLoad', { clear = true }),
+  pattern = '*',
+  callback = function()
+    vim.cmd 'normal! g`\\"' -- Jump unconditionally for testing
+  end,
+})
