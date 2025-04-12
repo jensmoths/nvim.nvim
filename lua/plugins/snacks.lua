@@ -2,8 +2,12 @@ return {
   {
     'folke/snacks.nvim',
     opts = {
-      picker = {},
-      explorer = { git_status_open = true, auto_close = true },
+      picker = {
+        sources = {
+          explorer = { git_status_open = true, auto_close = true, layout = { preset = 'default', preview = false } },
+        },
+      },
+      explorer = { replace_netrw = true },
       notifier = {},
     },
     keys = {
