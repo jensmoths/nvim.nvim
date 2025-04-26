@@ -1,4 +1,4 @@
 return { {
-  'SunnyTang/select-undo.nvim',
+  'SunnyTamang/select-undo.nvim',
   opts = { line_mapping = 'u' },
 } }
