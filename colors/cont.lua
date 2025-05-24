@@ -61,3 +61,7 @@ hi(0, 'MiniTablineCurrent', { fg = '#ff0099', bg = colors.bg })
 
 -- hi(0, 'TreesitterContext', { bg = '#332626' })
 hi(0, 'TreesitterContextBottom', { underline = true, sp = colors.grey })
+
+hi(0, 'DiagnosticSignError', { link = 'DiagnosticError' })
+
+hi(0, 'FloatBorder', { fg = '#00ff66', bg = 'NONE' })

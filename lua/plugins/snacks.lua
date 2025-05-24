@@ -1,16 +1,31 @@
 return {
   {
     'folke/snacks.nvim',
+    lazy = false,
     opts = {
       picker = {
         sources = {
-          explorer = { git_status_open = true, auto_close = true, layout = { preset = 'default', preview = false } },
+          explorer = { git_status_open = true, auto_close = false, jump = { close = true }, layout = { preset = 'default', preview = true } },
         },
       },
       explorer = { replace_netrw = true },
       notifier = {},
     },
     keys = {
+      {
+        '<leader>st',
+        function()
+          Snacks.picker.todo_comments()
+        end,
+        desc = 'Todo',
+      },
+      {
+        '<leader>sT',
+        function()
+          Snacks.picker.todo_comments { keywords = { 'TODO', 'FIX', 'FIXME' } }
+        end,
+        desc = 'Todo/Fix/Fixme',
+      },
       -- Top Pickers & Explorer
       {
         '<leader><space>',
