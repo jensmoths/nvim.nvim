@@ -8,3 +8,4 @@
 -- })
 --
 -- vim.bo.commentstring = '// %s'
+vim.opt.listchars = { tab = '␉,', trail = '␠,', nbsp = '⎵' }
