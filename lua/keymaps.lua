@@ -16,12 +16,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
@@ -31,23 +25,10 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
--- vim.api.nvim_create_autocmd('TextYankPost', {
---   desc = 'Highlight when yanking (copying) text',
---   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
---   callback = function()
---     vim.highlight.on_yank()
---   end,
--- })
-
 -- vim.keymap.set('i', 'jj', '<Esc>', { desc = 'Exit interactive mode' })
 vim.keymap.set('n', '<leader>b', '<C-o>', { desc = 'Go back' })
 vim.keymap.set('n', '<leader>B', '<C-i>', { desc = 'Go forward' })
+vim.keymap.set('n', '<leader>.', '<C-^>', { desc = 'Toggle to previous buffer' })
 vim.keymap.set('n', '<leader>pa', 'zg', { desc = 'Add to spell list' })
 vim.keymap.set('n', '<leader>pr', 'zw', { desc = 'Mark as misspelled' })
 
